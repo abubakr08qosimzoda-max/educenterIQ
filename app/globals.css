@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #10172A;
+    color: #10172A;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom organic card photo mask matching the reference design */
+.course-photo-mask {
+  clip-path: ellipse(92% 105% at 96% 52%);
+}
+
+@media (max-width: 639px) {
+  .course-photo-mask {
+    clip-path: ellipse(95% 110% at 95% 50%);
+  }
+}
+
+/* Floating gentle idle animation for decorative accents */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
